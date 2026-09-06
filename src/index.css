@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
+
+:root {
+  --navy: #0f1526;
+  --navy-light: #142035;
+  --cream: #f8f6e0;
+  --cream-dark: #efe9cf;
+  --gold: #d5a34e;
+  --gold-dark: #b8863a;
+  --ink: #1b1b1b;
+  --muted: #5c5c52;
+  --white: #ffffff;
+
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Jost', sans-serif;
+
+  --max-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  margin: 0;
+  line-height: 1.15;
+}
+
+p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+ul {
+  margin: 0;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-light {
+  background: var(--white);
+  color: var(--navy);
+}
+
+.btn-light:hover {
+  background: var(--gold);
+  color: var(--white);
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--white);
+}
+
+.btn-gold:hover {
+  background: var(--gold-dark);
+}
+
+.btn-outline {
+  border-color: var(--navy);
+  color: var(--navy);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* Section heading with gold bar accent */
+.section-heading {
+  display: flex;
+  align-items: stretch;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.section-heading .bar {
+  width: 5px;
+  background: var(--gold);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.section-heading h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 600;
+}
+
+.section-dark {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.section-cream {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.section {
+  padding: 90px 0;
+}
+
+@media (max-width: 700px) {
+  .section {
+    padding: 56px 0;
+  }
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

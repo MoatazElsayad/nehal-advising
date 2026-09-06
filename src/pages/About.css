@@ -1,0 +1,130 @@
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.about-intro h1 {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.about-portrait img {
+  width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+  aspect-ratio: 4/5;
+}
+
+.about-copy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.about-copy p {
+  margin-bottom: 22px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.about-copy strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.education-list {
+  display: grid;
+  gap: 24px;
+}
+
+.education-item {
+  position: relative;
+  height: 260px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.education-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+}
+
+.education-item-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 50px;
+}
+
+.education-item-overlay h3 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.education-item-overlay p {
+  color: #e2e3ec;
+  font-size: 15px;
+}
+
+.scholarship-list {
+  display: grid;
+  gap: 30px;
+}
+
+.scholarship-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 30px;
+  align-items: center;
+  background: var(--white);
+  border-radius: 6px;
+  padding: 26px;
+}
+
+.scholarship-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 130px;
+}
+
+.scholarship-logo img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.scholarship-item h3 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.scholarship-org {
+  color: var(--gold-dark);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.scholarship-item p:last-child {
+  color: var(--muted);
+}
+
+@media (max-width: 800px) {
+  .about-intro-grid,
+  .about-copy-grid {
+    grid-template-columns: 1fr;
+  }
+  .scholarship-item {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
