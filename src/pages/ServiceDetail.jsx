@@ -1,7 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { services } from '../data/services';
-import { formSchemas } from '../data/formSchemas';
-import BookingForm from '../components/BookingForm';
+import GoogleFormCta from '../components/GoogleFormCta';
 import './ServiceDetail.css';
 
 export default function ServiceDetail() {
@@ -11,8 +10,6 @@ export default function ServiceDetail() {
   if (!service) {
     return <Navigate to="/services" replace />;
   }
-
-  const schema = formSchemas[slug] || [];
 
   return (
     <div className="page-service-detail">
@@ -25,7 +22,13 @@ export default function ServiceDetail() {
       </section>
 
       <div className="container">
-        <BookingForm schema={schema} serviceTitle={service.title} />
+        <GoogleFormCta
+          className="is-overlap"
+          eyebrow="Book a session"
+          title="Ready to get started?"
+          description={`Complete the quick Google Form to request your ${service.title} session. I'll get back to you by email or WhatsApp to confirm.`}
+          actionLabel="Open Booking Form"
+        />
       </div>
 
       <section className="section other-services">

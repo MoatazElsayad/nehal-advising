@@ -91,7 +91,7 @@
   display: block;
   border-right: 1px solid rgba(255,255,255,0.12);
   color: var(--white);
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .service-card:last-child {
@@ -100,6 +100,7 @@
 
 .service-card:hover {
   background: rgba(255,255,255,0.04);
+  transform: translateY(-3px);
 }
 
 .service-card-media {

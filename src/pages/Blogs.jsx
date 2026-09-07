@@ -5,7 +5,7 @@ import './Blogs.css';
 export default function Blogs() {
   return (
     <div className="page-blogs">
-      <section className="section section-cream blogs-section">
+      <section className="section section-cream">
         <div className="container">
           <div className="section-heading">
             <span className="bar" />

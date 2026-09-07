@@ -1,31 +1,7 @@
-import { useState } from 'react';
-import { submitToFormspree } from '../lib/formspree';
+import GoogleFormCta from '../components/GoogleFormCta';
 import './Contact.css';
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [sent, setSent] = useState(false);
-  const [status, setStatus] = useState('idle');
-
-  const handleChange = (e) => {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus('sending');
-    try {
-      await submitToFormspree({
-        _subject: 'New contact message from the website',
-        ...form,
-      });
-      setSent(true);
-    } catch (err) {
-      console.error(err);
-      setStatus('error');
-    }
-  };
-
   return (
     <div className="page-contact">
       <section className="section section-dark contact-header">
@@ -63,38 +39,12 @@ export default function Contact() {
             </ul>
           </div>
 
-          <div>
-            {sent ? (
-              <div className="contact-success">
-                <h3>Message sent!</h3>
-                <p>Thanks for reaching out &mdash; I&rsquo;ll get back to you soon.</p>
-              </div>
-            ) : (
-              <form className="contact-form" onSubmit={handleSubmit}>
-                <div className="form-field">
-                  <label htmlFor="name">Name *</label>
-                  <input id="name" name="name" required value={form.name} onChange={handleChange} />
-                </div>
-                <div className="form-field">
-                  <label htmlFor="email">Email Address *</label>
-                  <input id="email" name="email" type="email" required value={form.email} onChange={handleChange} />
-                </div>
-                <div className="form-field">
-                  <label htmlFor="message">Message *</label>
-                  <textarea id="message" name="message" rows={5} required value={form.message} onChange={handleChange} />
-                </div>
-                <button type="submit" className="btn btn-gold submit-btn" disabled={status === 'sending'}>
-                  {status === 'sending' ? 'SENDING...' : 'SEND MESSAGE'}
-                </button>
-                {status === 'error' && (
-                  <p className="form-error" role="alert">
-                    Something went wrong sending your message. Please try again, or email
-                    nehalelsayad20@gmail.com directly.
-                  </p>
-                )}
-              </form>
-            )}
-          </div>
+          <GoogleFormCta
+            eyebrow="Quick form"
+            title="Prefer a quick form?"
+            description="Fill in the short Google Form and I'll get back to you as soon as I can — usually within a day or two."
+            actionLabel="Open Contact Form"
+          />
         </div>
       </section>
     </div>

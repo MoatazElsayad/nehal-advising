@@ -42,6 +42,11 @@
   font-size: 15px;
 }
 
+.footer-col a {
+  color: inherit;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
 .footer-col a:hover {
   color: var(--gold-dark);
 }
