@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { testimonials } from '../data/testimonials';
 import './Testimonials.css';
+
+const AUTOPLAY_DELAY = 7000;
 
 const stats = [
   { value: '100+', label: 'Students Advised' },
@@ -20,6 +22,25 @@ function Stars({ rating = 5 }) {
   );
 }
 
+function Chevron({ direction }) {
+  const isPrev = direction === 'prev';
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d={isPrev ? 'M15 18l-6-6 6-6' : 'M9 18l6-6-6-6'} />
+    </svg>
+  );
+}
+
 function initials(name) {
   return name
     .split(' ')
@@ -32,11 +53,40 @@ function initials(name) {
 
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const [hovering, setHovering] = useState(false);
   const total = testimonials.length;
-  const current = testimonials[index];
+  const paused = hovering || reduceMotion;
+  const hoveringRef = useRef(false);
 
-  const prev = () => setIndex((i) => (i - 1 + total) % total);
-  const next = () => setIndex((i) => (i + 1) % total);
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReduceMotion(mq.matches);
+    const onChange = (e) => setReduceMotion(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  const goTo = useCallback((i) => setIndex(((i % total) + total) % total), [total]);
+
+  useEffect(() => {
+    if (reduceMotion) return;
+    const id = setInterval(() => {
+      if (!hoveringRef.current) {
+        setIndex((i) => (i + 1) % total);
+      }
+    }, AUTOPLAY_DELAY);
+    return () => clearInterval(id);
+  }, [index, total, reduceMotion]);
+
+  const pause = () => {
+    hoveringRef.current = true;
+    setHovering(true);
+  };
+  const resume = () => {
+    hoveringRef.current = false;
+    setHovering(false);
+  };
 
   return (
     <div className="page-testimonials">
@@ -59,17 +109,25 @@ export default function Testimonials() {
 
       <section className="section section-cream testimonials-section">
         <div className="container">
-          <div className="carousel">
-            <button className="carousel-arrow dark" onClick={prev} aria-label="Previous testimonial">
-              &#8249;
+          <div
+            className={`carousel ${paused ? 'is-paused' : ''}`}
+            onMouseEnter={pause}
+            onMouseLeave={resume}
+            onFocus={pause}
+            onBlur={resume}
+          >
+            <button className="carousel-arrow" onClick={() => goTo(index - 1)} aria-label="Previous testimonial">
+              <Chevron direction="prev" />
             </button>
-            <div className="carousel-viewport">
-              <div
-                className="carousel-track"
-                style={{ transform: `translateX(-${index * 100}%)` }}
-              >
+
+            <div className="carousel-viewport" role="region" aria-roledescription="carousel" aria-label="Client testimonials">
+              <div className="carousel-track">
                 {testimonials.map((t, i) => (
-                  <blockquote className="quote-card" key={t.name + i}>
+                  <blockquote
+                    className={`quote-card ${i === index ? 'is-active' : ''}`}
+                    key={t.name + i}
+                    aria-hidden={i !== index}
+                  >
                     <div className="quote-author">
                       <span className="avatar" aria-hidden="true">{initials(t.name)}</span>
                       <div className="quote-author-meta">
@@ -82,21 +140,38 @@ export default function Testimonials() {
                   </blockquote>
                 ))}
               </div>
+
+              <span
+                className="autoplay-progress"
+                key={index}
+                role="presentation"
+                style={{ animationDuration: `${AUTOPLAY_DELAY}ms` }}
+              />
             </div>
-            <button className="carousel-arrow dark" onClick={next} aria-label="Next testimonial">
-              &#8250;
+
+            <button className="carousel-arrow" onClick={() => goTo(index + 1)} aria-label="Next testimonial">
+              <Chevron direction="next" />
             </button>
           </div>
 
-          <div className="carousel-dots dark">
-            {testimonials.map((t, i) => (
-              <button
-                key={t.name + i}
-                className={`dot ${i === index ? 'is-active' : ''}`}
-                onClick={() => setIndex(i)}
-                aria-label={`Show testimonial ${i + 1}`}
-              />
-            ))}
+          <div className="carousel-controls">
+            <div className="carousel-dots" role="tablist" aria-label="Choose testimonial">
+              {testimonials.map((t, i) => (
+                <button
+                  key={t.name + i}
+                  role="tab"
+                  aria-selected={i === index}
+                  aria-label={`Testimonial ${i + 1} of ${total}`}
+                  className={`dot ${i === index ? 'is-active' : ''}`}
+                  onClick={() => goTo(i)}
+                />
+              ))}
+            </div>
+            <span className="carousel-count" aria-hidden="true">
+              {String(index + 1).padStart(2, '0')}
+              <span>/</span>
+              {String(total).padStart(2, '0')}
+            </span>
           </div>
         </div>
       </section>
