@@ -63,17 +63,26 @@ export default function Testimonials() {
             <button className="carousel-arrow dark" onClick={prev} aria-label="Previous testimonial">
               &#8249;
             </button>
-            <blockquote className="quote-card">
-              <div className="quote-author">
-                <span className="avatar" aria-hidden="true">{initials(current.name)}</span>
-                <div className="quote-author-meta">
-                  <Stars />
-                  <strong>{current.name}</strong>
-                  <span className="quote-year">{current.year}</span>
-                </div>
+            <div className="carousel-viewport">
+              <div
+                className="carousel-track"
+                style={{ transform: `translateX(-${index * 100}%)` }}
+              >
+                {testimonials.map((t, i) => (
+                  <blockquote className="quote-card" key={t.name + i}>
+                    <div className="quote-author">
+                      <span className="avatar" aria-hidden="true">{initials(t.name)}</span>
+                      <div className="quote-author-meta">
+                        <Stars />
+                        <strong>{t.name}</strong>
+                        <span className="quote-year">{t.year}</span>
+                      </div>
+                    </div>
+                    <p>&ldquo;{t.quote}&rdquo;</p>
+                  </blockquote>
+                ))}
               </div>
-              <p>&ldquo;{current.quote}&rdquo;</p>
-            </blockquote>
+            </div>
             <button className="carousel-arrow dark" onClick={next} aria-label="Next testimonial">
               &#8250;
             </button>
