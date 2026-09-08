@@ -58,6 +58,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   box-shadow: 0 30px 70px -34px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(0, 0, 0, 0.05);
   position: relative;
@@ -103,40 +105,30 @@
   color: var(--ink);
   font-style: italic;
   line-height: 1.7;
-  margin-top: 24px;
   max-width: 46em;
 }
 
 .quote-author {
   display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.avatar {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  color: var(--white);
-  font-family: var(--font-heading);
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 8px 18px -8px rgba(184, 134, 58, 0.6);
-}
-
-.quote-author-meta {
-  display: flex;
   flex-direction: column;
-  gap: 2px;
+  align-items: center;
+  gap: 3px;
+  margin-top: 26px;
 }
 
-.quote-author-meta strong {
+.quote-author::before {
+  content: '';
+  width: 34px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+  margin-bottom: 10px;
+}
+
+.quote-name {
   font-family: var(--font-heading);
   font-size: 16px;
+  font-weight: 600;
   color: var(--ink);
 }
 
@@ -144,14 +136,6 @@
   font-size: 13px;
   color: var(--muted);
   letter-spacing: 0.04em;
-}
-
-.stars {
-  display: flex;
-  gap: 3px;
-  color: var(--gold);
-  font-size: 15px;
-  line-height: 1;
 }
 
 .autoplay-progress {
@@ -313,10 +297,6 @@
   .quote-card::after {
     font-size: 52px;
     right: 18px;
-  }
-  .avatar {
-    width: 46px;
-    height: 46px;
   }
   .carousel {
     gap: 10px;

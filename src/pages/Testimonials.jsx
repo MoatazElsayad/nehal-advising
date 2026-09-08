@@ -10,18 +10,6 @@ const stats = [
   { value: 'Top', label: 'Scholarship Placement Rate' },
 ];
 
-function Stars({ rating = 5 }) {
-  return (
-    <div className="stars" aria-label={`${rating} out of 5 stars`}>
-      {Array.from({ length: rating }).map((_, i) => (
-        <span key={i} aria-hidden="true">
-          &#9733;
-        </span>
-      ))}
-    </div>
-  );
-}
-
 function Chevron({ direction }) {
   const isPrev = direction === 'prev';
   return (
@@ -39,16 +27,6 @@ function Chevron({ direction }) {
       <path d={isPrev ? 'M15 18l-6-6 6-6' : 'M9 18l6-6-6-6'} />
     </svg>
   );
-}
-
-function initials(name) {
-  return name
-    .split(' ')
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join('')
-    .toUpperCase();
 }
 
 export default function Testimonials() {
@@ -128,15 +106,11 @@ export default function Testimonials() {
                     key={t.name + i}
                     aria-hidden={i !== index}
                   >
-                    <div className="quote-author">
-                      <span className="avatar" aria-hidden="true">{initials(t.name)}</span>
-                      <div className="quote-author-meta">
-                        <Stars />
-                        <strong>{t.name}</strong>
-                        <span className="quote-year">{t.year}</span>
-                      </div>
-                    </div>
                     <p>&ldquo;{t.quote}&rdquo;</p>
+                    <footer className="quote-author">
+                      <span className="quote-name">{t.name}</span>
+                      <span className="quote-year">{t.year}</span>
+                    </footer>
                   </blockquote>
                 ))}
               </div>
