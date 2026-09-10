@@ -36,11 +36,12 @@
 }
 
 .education-section {
+  padding-top: 64px;
   padding-bottom: 0;
 }
 
 .education-section .section-heading {
-  margin-bottom: 44px;
+  margin-bottom: 34px;
 }
 
 .education-carousel {
@@ -48,6 +49,9 @@
   width: 100%;
   overflow: hidden;
   background: var(--navy);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.65);
 }
 
 .education-viewport {
@@ -64,7 +68,7 @@
 .education-slide {
   flex: 0 0 100%;
   position: relative;
-  height: 440px;
+  height: 480px;
   overflow: hidden;
 }
 
@@ -74,10 +78,19 @@
   object-fit: cover;
 }
 
+.education-slide.is-active img {
+  animation: educationImageZoom 8s ease-in-out infinite;
+}
+
 .education-slide-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(15, 21, 38, 0.35) 0%, rgba(15, 21, 38, 0.78) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(15, 21, 38, 0.12) 0%,
+    rgba(15, 21, 38, 0.3) 42%,
+    rgba(15, 21, 38, 0.88) 100%
+  );
 }
 
 .education-slide-content {
@@ -88,60 +101,90 @@
   justify-content: flex-end;
   align-items: center;
   text-align: center;
-  padding: 0 24px 60px;
+  padding: 0 24px 68px;
+}
+
+.education-slide-content::before {
+  content: "";
+  width: 34px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-bottom: 18px;
+}
+
+.education-slide-content.is-active {
+  animation: educationTextIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .education-slide-content h3 {
-  font-size: clamp(24px, 4vw, 40px);
+  font-size: clamp(26px, 3.6vw, 44px);
   font-weight: 600;
-  margin-bottom: 10px;
-  max-width: 760px;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+  margin-bottom: 12px;
+  max-width: 780px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45);
 }
 
 .education-slide-content p {
   color: var(--gold);
   font-size: 16px;
-  letter-spacing: 0.02em;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.5);
 }
 
 .education-slide-index {
   position: absolute;
-  top: 28px;
-  left: 36px;
+  top: 26px;
+  left: 30px;
+  display: flex;
+  align-items: baseline;
   font-family: var(--font-heading);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.15em;
-  color: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(15, 21, 38, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 999px;
-  padding: 8px 16px;
+  padding: 8px 15px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.education-slide-index em {
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .education-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 52px;
-  height: 52px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  border: none;
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--navy);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 14px 30px -14px rgba(0, 0, 0, 0.5);
-  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.55);
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease,
+    transform 0.2s ease, box-shadow 0.25s ease;
   z-index: 3;
 }
 
 .education-arrow:hover {
   background: var(--gold);
-  color: var(--white);
+  border-color: var(--gold);
+  color: var(--navy);
+  box-shadow: 0 14px 28px -12px rgba(0, 0, 0, 0.6);
+  transform: translateY(-50%) scale(1.06);
 }
 
 .education-arrow:active {
@@ -149,43 +192,63 @@
 }
 
 .education-arrow-prev {
-  left: 28px;
+  left: 26px;
 }
 
 .education-arrow-next {
-  right: 28px;
+  right: 26px;
 }
 
 .education-dots {
   position: absolute;
-  bottom: 22px;
+  bottom: 24px;
   left: 0;
   right: 0;
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   z-index: 3;
 }
 
 .education-dots .dot {
-  width: 9px;
-  height: 9px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.35);
   padding: 0;
   cursor: pointer;
-  transition: background 0.25s ease, width 0.3s ease;
+  transition: background 0.3s ease, width 0.3s ease;
 }
 
 .education-dots .dot:hover {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.65);
 }
 
 .education-dots .dot.is-active {
   background: var(--gold);
   width: 28px;
-  border-radius: 6px;
+}
+
+@keyframes educationTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes educationImageZoom {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 .scholarship-list {
@@ -240,25 +303,49 @@
     grid-template-columns: 1fr;
     text-align: center;
   }
+  .education-section {
+    padding-top: 52px;
+  }
   .education-slide {
-    height: 360px;
+    height: 400px;
   }
   .education-slide-content {
-    padding-bottom: 52px;
+    padding-bottom: 56px;
   }
   .education-slide-index {
-    top: 20px;
-    left: 20px;
+    top: 18px;
+    left: 18px;
   }
   .education-arrow {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
   }
   .education-arrow-prev {
-    left: 14px;
+    left: 16px;
   }
   .education-arrow-next {
-    right: 14px;
+    right: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .education-section {
+    padding-top: 44px;
+  }
+  .education-slide {
+    height: 340px;
+  }
+  .education-slide-content {
+    padding-bottom: 48px;
+  }
+  .education-slide-content h3 {
+    font-size: clamp(22px, 7vw, 28px);
+  }
+  .education-slide-content p {
+    font-size: 14px;
+  }
+  .education-dots {
+    bottom: 18px;
   }
 }
 
@@ -268,5 +355,11 @@
   }
   .education-arrow {
     transition: none;
+  }
+  .education-slide.is-active img {
+    animation: none;
+  }
+  .education-slide-content.is-active {
+    animation: none;
   }
 }

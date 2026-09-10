@@ -65,12 +65,19 @@ function EducationCarousel() {
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {education.map((e, i) => (
-            <div className="education-slide" key={e.university}>
+            <div
+              className={`education-slide ${i === index ? 'is-active' : ''}`}
+              key={e.university}
+            >
               <img src={e.image} alt="" />
               <div className="education-slide-overlay" />
-              <div className="education-slide-content">
+              <div
+                className={`education-slide-content ${i === index ? 'is-active' : ''}`}
+                key={i === index ? 'active-' + i : i}
+              >
                 <span className="education-slide-index" aria-hidden="true">
                   {String(i + 1).padStart(2, '0')}
+                  <em>/ {String(total).padStart(2, '0')}</em>
                 </span>
                 <h3>{e.university}</h3>
                 <p>{e.detail}</p>
@@ -178,7 +185,9 @@ export default function About() {
             <h2>Education Background</h2>
           </div>
         </div>
-        <EducationCarousel />
+        <div className="container">
+          <EducationCarousel />
+        </div>
       </ScrollReveal>
 
       <ScrollReveal as="section" className="section section-cream scholarship-section">
