@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { blogs } from '../data/blogs';
+import ScrollReveal from '../components/ScrollReveal';
 import './Blogs.css';
 
 export default function Blogs() {
   return (
     <div className="page-blogs">
-      <section className="section section-cream">
+      <ScrollReveal as="section" className="section section-cream">
         <div className="container">
           <div className="section-heading">
             <span className="bar" />
@@ -26,7 +27,7 @@ export default function Blogs() {
             ))}
           </div>
         </div>
-      </section>
+      </ScrollReveal>
     </div>
   );
 }

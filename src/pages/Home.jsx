@@ -1,11 +1,12 @@
 import { GOOGLE_FORM_URL } from '../data/site';
 import heroImg from '../photos/hero.png';
+import ScrollReveal from '../components/ScrollReveal';
 import './Home.css';
 
 export default function Home() {
   return (
     <div className="page-home">
-      <section className="hero">
+      <ScrollReveal as="section" className="hero">
         <div className="hero-media">
           <img src={heroImg} alt="Nehal Elsayad, independent academic advisor" />
           <div className="hero-overlay" />
@@ -25,7 +26,7 @@ export default function Home() {
             <span className="btn btn-light btn-disabled">Let's Work Together &rarr;</span>
           )}
         </div>
-      </section>
+      </ScrollReveal>
     </div>
   );
 }

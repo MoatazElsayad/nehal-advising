@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { education, scholarships } from '../data/about';
 import aboutImg from '../photos/about.png';
+import ScrollReveal from '../components/ScrollReveal';
 import './About.css';
 
 function Chevron({ direction }) {
@@ -113,7 +114,7 @@ function EducationCarousel() {
 export default function About() {
   return (
     <div className="page-about">
-      <section className="section section-cream about-intro">
+      <ScrollReveal as="section" className="section section-cream about-intro">
         <div className="container about-intro-grid">
           <div>
             <h1>
@@ -168,9 +169,9 @@ export default function About() {
             </p>
           </div>
         </div>
-      </section>
+      </ScrollReveal>
 
-      <section className="section section-dark education-section">
+      <ScrollReveal as="section" className="section section-dark education-section">
         <div className="container">
           <div className="section-heading">
             <span className="bar" />
@@ -178,9 +179,9 @@ export default function About() {
           </div>
         </div>
         <EducationCarousel />
-      </section>
+      </ScrollReveal>
 
-      <section className="section section-cream scholarship-section">
+      <ScrollReveal as="section" className="section section-cream scholarship-section">
         <div className="container">
           <div className="section-heading">
             <span className="bar" />
@@ -201,7 +202,7 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </ScrollReveal>
     </div>
   );
 }

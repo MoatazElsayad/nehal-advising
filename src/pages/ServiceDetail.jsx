@@ -1,6 +1,7 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { services } from '../data/services';
 import GoogleFormCta from '../components/GoogleFormCta';
+import ScrollReveal from '../components/ScrollReveal';
 import './ServiceDetail.css';
 
 export default function ServiceDetail() {
@@ -13,15 +14,15 @@ export default function ServiceDetail() {
 
   return (
     <div className="page-service-detail">
-      <section className="section section-dark service-detail-header">
+      <ScrollReveal as="section" className="section section-dark service-detail-header">
         <div className="container">
           <h1>{service.title}</h1>
           <p className="service-detail-intro">{service.intro}</p>
           <p className="service-detail-sub"><strong>{service.subIntro}</strong></p>
         </div>
-      </section>
+      </ScrollReveal>
 
-      <div className="container">
+      <ScrollReveal className="container">
         <GoogleFormCta
           className="is-overlap"
           eyebrow="Book a session"
@@ -29,9 +30,9 @@ export default function ServiceDetail() {
           description={`Complete the quick Google Form to request your ${service.title} session. I'll get back to you by email or WhatsApp to confirm.`}
           actionLabel="Open Booking Form"
         />
-      </div>
+      </ScrollReveal>
 
-      <section className="section other-services">
+      <ScrollReveal as="section" className="section other-services">
         <div className="container">
           <div className="section-heading">
             <span className="bar" />
@@ -51,7 +52,7 @@ export default function ServiceDetail() {
               ))}
           </div>
         </div>
-      </section>
+      </ScrollReveal>
     </div>
   );
 }

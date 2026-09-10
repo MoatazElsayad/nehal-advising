@@ -1,17 +1,18 @@
 import { Link } from 'react-router-dom';
 import { services } from '../data/services';
+import ScrollReveal from '../components/ScrollReveal';
 import './Services.css';
 
 export default function Services() {
   return (
     <div className="page-services">
-      <section className="section section-dark services-header">
+      <ScrollReveal as="section" className="section section-dark services-header">
         <div className="container">
           <h1>Services</h1>
         </div>
-      </section>
+      </ScrollReveal>
 
-      <section className="section section-cream services-intro">
+      <ScrollReveal as="section" className="section section-cream services-intro">
         <div className="container services-intro-grid">
           <div>
             <h2>You bring your story and ambition. I help you navigate the way forward!</h2>
@@ -28,9 +29,9 @@ export default function Services() {
             </p>
           </div>
         </div>
-      </section>
+      </ScrollReveal>
 
-      <section className="section section-dark services-grid-section">
+      <ScrollReveal as="section" className="section section-dark services-grid-section">
         <div className="container">
           <div className="services-grid">
             {services.map((s) => (
@@ -51,7 +52,7 @@ export default function Services() {
             ))}
           </div>
         </div>
-      </section>
+      </ScrollReveal>
     </div>
   );
 }

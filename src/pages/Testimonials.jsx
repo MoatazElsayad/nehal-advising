@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { testimonials } from '../data/testimonials';
+import ScrollReveal from '../components/ScrollReveal';
 import './Testimonials.css';
 
 const AUTOPLAY_DELAY = 7000;
@@ -68,7 +69,7 @@ export default function Testimonials() {
 
   return (
     <div className="page-testimonials">
-      <section className="section section-dark testimonials-hero">
+      <ScrollReveal as="section" className="section section-dark testimonials-hero">
         <div className="container">
           <span className="eyebrow">Testimonial</span>
           <div className="testimonial-heading-row">
@@ -83,9 +84,9 @@ export default function Testimonials() {
             scholarships and university acceptances.
           </p>
         </div>
-      </section>
+      </ScrollReveal>
 
-      <section className="section section-cream testimonials-section">
+      <ScrollReveal as="section" className="section section-cream testimonials-section">
         <div className="container">
           <div
             className={`carousel ${paused ? 'is-paused' : ''}`}
@@ -148,9 +149,9 @@ export default function Testimonials() {
             </span>
           </div>
         </div>
-      </section>
+      </ScrollReveal>
 
-      <section className="section section-dark stats-section">
+      <ScrollReveal as="section" className="section section-dark stats-section">
         <div className="container">
           <div className="stats-grid">
             {stats.map((s) => (
@@ -161,7 +162,7 @@ export default function Testimonials() {
             ))}
           </div>
         </div>
-      </section>
+      </ScrollReveal>
     </div>
   );
 }

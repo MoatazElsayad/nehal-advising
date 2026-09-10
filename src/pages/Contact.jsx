@@ -1,3 +1,4 @@
+import ScrollReveal from '../components/ScrollReveal';
 import './Contact.css';
 
 function PhoneIcon() {
@@ -21,14 +22,14 @@ function PhoneIcon() {
 export default function Contact() {
   return (
     <div className="page-contact">
-      <section className="section section-dark contact-header">
+      <ScrollReveal as="section" className="section section-dark contact-header">
         <div className="container">
           <h1>Contact</h1>
           <p>Have a question or ready to get started? Reach out below.</p>
         </div>
-      </section>
+      </ScrollReveal>
 
-      <section className="section section-cream contact-body">
+      <ScrollReveal as="section" className="section section-cream contact-body">
         <div className="container contact-grid">
           <div className="contact-info">
             <div className="section-heading">
@@ -80,7 +81,7 @@ export default function Contact() {
             </a>
           </div>
         </div>
-      </section>
+      </ScrollReveal>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { blogs } from '../data/blogs';
+import ScrollReveal from '../components/ScrollReveal';
 import './BlogPost.css';
 
 function renderBlock(block, i) {
@@ -37,22 +38,22 @@ export default function BlogPost() {
 
   return (
     <div className="page-blog-post">
-      <section className="section section-cream blog-post-header">
+      <ScrollReveal as="section" className="section section-cream blog-post-header">
         <div className="container">
           <Link to="/blogs" className="back-link">&larr; Back to Blogs</Link>
           <h1>{post.title}</h1>
           <p className="blog-post-date">{post.date}</p>
         </div>
-      </section>
+      </ScrollReveal>
 
-      <section className="section section-cream blog-post-body">
+      <ScrollReveal as="section" className="section section-cream blog-post-body">
         <div className="container blog-post-content">
           {post.body.map(renderBlock)}
         </div>
-      </section>
+      </ScrollReveal>
 
       {others.length > 0 && (
-        <section className="section section-dark other-posts">
+        <ScrollReveal as="section" className="section section-dark other-posts">
           <div className="container">
             <div className="section-heading">
               <span className="bar" />
@@ -68,7 +69,7 @@ export default function BlogPost() {
               ))}
             </div>
           </div>
-        </section>
+        </ScrollReveal>
       )}
     </div>
   );
