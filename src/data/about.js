@@ -1,18 +1,33 @@
 export const education = [
   {
+    university: 'The British University in Egypt',
+    detail: 'Bachelor of Arts in Communication and Mass Media, 2021',
+    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1600&q=80',
+  },
+  {
+    university: 'The American University in Cairo',
+    detail: 'Academic Preparation Program, 2016-2017',
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80',
+  },
+  {
+    university: 'University of Michigan',
+    detail: 'Social Entrepreneurship Program, 2018',
+    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80',
+  },
+  {
     university: 'The University of Manchester',
-    detail: "Master of Arts in International Education, 2024",
-    image: 'https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?auto=format&fit=crop&w=1200&q=80',
+    detail: 'Master of Arts in International Education, 2024',
+    image: 'https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?auto=format&fit=crop&w=1600&q=80',
   },
   {
     university: 'London South Bank University',
     detail: 'Bachelor of Arts in Communication and Mass Media, 2021',
-    image: 'https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=1600&q=80',
   },
   {
     university: 'University of the Incarnate Word',
     detail: 'Study Abroad Program, 2019',
-    image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1600&q=80',
   },
 ];
 

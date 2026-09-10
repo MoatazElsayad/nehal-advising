@@ -17,4 +17,16 @@ export const testimonials = [
     name: 'MBA Applicant',
     year: '2026',
   },
+  {
+    quote:
+      'Nehal supported me through both stages of my Chevening journey. She reviewed my application and later helped me prepare for the interview through detailed preparation and mock interview practice. Her feedback helped me communicate my experiences and goals more effectively, and I was ultimately selected for the Chevening Scholarship.',
+    name: 'Chevening Scholar',
+    year: '2025',
+  },
+  {
+    quote:
+      "Nehal's feedback on my Chevening application helped me better connect my achievements, leadership experience and future goals. Her guidance was practical and detailed, and I successfully reached the interview stage.",
+    name: 'Chevening Shortlisted Applicant',
+    year: '2025',
+  },
 ];

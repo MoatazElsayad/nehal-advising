@@ -105,9 +105,22 @@
 }
 
 .read-more {
-  color: var(--gold);
-  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--navy);
+  font-weight: 600;
   font-size: 14px;
+  background: var(--gold);
+  border-radius: 4px;
+  padding: 9px 22px;
+  letter-spacing: 0.03em;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.service-card:hover .read-more {
+  background: var(--gold-dark);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 900px) {

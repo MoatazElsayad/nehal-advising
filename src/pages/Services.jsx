@@ -45,7 +45,7 @@ export default function Services() {
                 <div className="service-card-body">
                   <h4>{s.title}</h4>
                   <p>{s.summary}</p>
-                  <span className="read-more">Read More &rarr;</span>
+                  <span className="read-more">Book Now &rarr;</span>
                 </div>
               </Link>
             ))}

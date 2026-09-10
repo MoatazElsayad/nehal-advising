@@ -1,5 +1,113 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { education, scholarships } from '../data/about';
 import './About.css';
+
+function Chevron({ direction }) {
+  const isPrev = direction === 'prev';
+  return (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d={isPrev ? 'M15 18l-6-6 6-6' : 'M9 18l6-6-6-6'} />
+    </svg>
+  );
+}
+
+function EducationCarousel() {
+  const [index, setIndex] = useState(0);
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const total = education.length;
+  const hoveringRef = useRef(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReduceMotion(mq.matches);
+    const onChange = (e) => setReduceMotion(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  const goTo = useCallback((i) => setIndex(((i % total) + total) % total), [total]);
+
+  useEffect(() => {
+    if (reduceMotion) return;
+    const id = setInterval(() => {
+      if (!hoveringRef.current) {
+        setIndex((i) => (i + 1) % total);
+      }
+    }, 5000);
+    return () => clearInterval(id);
+  }, [index, total, reduceMotion]);
+
+  return (
+    <div
+      className="education-carousel"
+      onMouseEnter={() => {
+        hoveringRef.current = true;
+      }}
+      onMouseLeave={() => {
+        hoveringRef.current = false;
+      }}
+    >
+      <div className="education-viewport">
+        <div
+          className="education-track"
+          style={{ transform: `translateX(-${index * 100}%)` }}
+        >
+          {education.map((e, i) => (
+            <div className="education-slide" key={e.university}>
+              <img src={e.image} alt="" />
+              <div className="education-slide-overlay" />
+              <div className="education-slide-content">
+                <span className="education-slide-index" aria-hidden="true">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3>{e.university}</h3>
+                <p>{e.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button
+        className="education-arrow education-arrow-prev"
+        onClick={() => goTo(index - 1)}
+        aria-label="Previous university"
+      >
+        <Chevron direction="prev" />
+      </button>
+      <button
+        className="education-arrow education-arrow-next"
+        onClick={() => goTo(index + 1)}
+        aria-label="Next university"
+      >
+        <Chevron direction="next" />
+      </button>
+
+      <div className="education-dots" role="tablist" aria-label="Choose university">
+        {education.map((e, i) => (
+          <button
+            key={e.university}
+            role="tab"
+            aria-selected={i === index}
+            aria-label={`${e.university} (${i + 1} of ${total})`}
+            className={`dot ${i === index ? 'is-active' : ''}`}
+            onClick={() => goTo(i)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function About() {
   return (
@@ -70,18 +178,8 @@ export default function About() {
             <span className="bar" />
             <h2>Education Background</h2>
           </div>
-          <div className="education-list">
-            {education.map((e) => (
-              <div className="education-item" key={e.university}>
-                <img src={e.image} alt="" />
-                <div className="education-item-overlay">
-                  <h3>{e.university}</h3>
-                  <p>{e.detail}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
+        <EducationCarousel />
       </section>
 
       <section className="section section-cream scholarship-section">

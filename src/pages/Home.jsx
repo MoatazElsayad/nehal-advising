@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { GOOGLE_FORM_URL } from '../data/site';
 import './Home.css';
 
 export default function Home() {
@@ -19,7 +19,13 @@ export default function Home() {
             Personalized academic advising for students and professionals pursuing
             scholarships, university admissions, and international study opportunities.
           </p>
-          <Link to="/contact" className="btn btn-light">Let's Work Together</Link>
+          {GOOGLE_FORM_URL ? (
+            <a className="btn btn-light" href={GOOGLE_FORM_URL} target="_blank" rel="noreferrer">
+              Book an Ask Nehal Session &rarr;
+            </a>
+          ) : (
+            <span className="btn btn-light btn-disabled">Book an Ask Nehal Session &rarr;</span>
+          )}
         </div>
       </section>
     </div>

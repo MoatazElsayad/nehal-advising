@@ -6,7 +6,7 @@ const AUTOPLAY_DELAY = 7000;
 
 const stats = [
   { value: '100+', label: 'Students Advised' },
-  { value: '4+', label: 'Years of Experience' },
+  { value: '6+', label: 'Years of Experience' },
   { value: 'Top', label: 'Scholarship Placement Rate' },
 ];
 
