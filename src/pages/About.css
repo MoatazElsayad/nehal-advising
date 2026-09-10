@@ -36,11 +36,31 @@
 }
 
 .education-section {
-  padding-bottom: 0;
+  padding: 0;
 }
 
-.education-section .section-heading {
-  margin-bottom: 44px;
+.education-slide-label {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  z-index: 2;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+}
+
+.education-slide-label .bar {
+  width: 4px;
+  background: var(--gold);
+  border-radius: 2px;
 }
 
 .education-carousel {
@@ -249,6 +269,11 @@
   .education-slide-index {
     top: 20px;
     left: 20px;
+  }
+  .education-slide-label {
+    top: 16px;
+    font-size: 13px;
+    gap: 8px;
   }
   .education-arrow {
     width: 42px;

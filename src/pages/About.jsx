@@ -69,6 +69,10 @@ function EducationCarousel() {
               <img src={e.image} alt="" />
               <div className="education-slide-overlay" />
               <div className="education-slide-content">
+                <span className="education-slide-label" aria-hidden="true">
+                  <span className="bar" />
+                  Education Background
+                </span>
                 <span className="education-slide-index" aria-hidden="true">
                   {String(i + 1).padStart(2, '0')}
                 </span>
@@ -171,13 +175,7 @@ export default function About() {
         </div>
       </ScrollReveal>
 
-      <ScrollReveal as="section" className="section section-dark education-section">
-        <div className="container">
-          <div className="section-heading">
-            <span className="bar" />
-            <h2>Education Background</h2>
-          </div>
-        </div>
+      <ScrollReveal as="section" className="section education-section">
         <EducationCarousel />
       </ScrollReveal>
 
