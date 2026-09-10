@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { education, scholarships } from '../data/about';
+import aboutImg from '../photos/about.png';
 import './About.css';
 
 function Chevron({ direction }) {
@@ -121,10 +122,7 @@ export default function About() {
             </h1>
           </div>
           <div className="about-portrait">
-            <img
-              src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80"
-              alt="Nehal Elsayad"
-            />
+            <img src={aboutImg} alt="Nehal Elsayad" />
           </div>
         </div>
 
