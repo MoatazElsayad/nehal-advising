@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  min-height: 640px;
+  min-height: max(640px, 100vh);
   display: flex;
   align-items: center;
   color: var(--white);
@@ -30,7 +30,7 @@
   max-width: 640px;
   margin-left: auto;
   margin-right: 0;
-  padding-top: 80px;
+  padding-top: 130px;
   padding-bottom: 80px;
 }
 

@@ -7,6 +7,10 @@
 }
 
 .site-header.is-transparent {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
   background: linear-gradient(180deg, rgba(15, 21, 38, 0.72) 0%, rgba(15, 21, 38, 0.25) 60%, rgba(15, 21, 38, 0) 100%);
 }
 
