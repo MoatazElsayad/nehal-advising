@@ -14,7 +14,7 @@ export default function Blogs() {
           <div className="blog-grid">
             {blogs.map((b) => (
               <Link to={`/blogs/${b.slug}`} className="blog-card" key={b.slug}>
-                <div className="blog-card-media">
+                <div className={`blog-card-media ${b.cover ? 'is-cover' : ''}`}>
                   <img src={b.image} alt="" />
                 </div>
                 <div className="blog-card-body">

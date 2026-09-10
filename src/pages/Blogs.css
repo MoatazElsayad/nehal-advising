@@ -33,6 +33,17 @@
   object-fit: contain;
 }
 
+.blog-card-media.is-cover {
+  padding: 0;
+  background: var(--navy);
+}
+
+.blog-card-media.is-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .blog-card-body {
   padding: 26px 28px 30px;
   flex: 1;

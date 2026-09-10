@@ -8,6 +8,7 @@ export const blogs = [
       'What does an independent academic advisor actually do? This article explains how independent advising differs from university agencies, what support an advisor can provide, why the service is paid, how your privacy and ownership of the application are protected, and why the goal is always to help you present the strongest and most authentic version of your own profile!',
     date: 'August 22, 2026',
     image: advisingImg,
+    cover: true,
     body: [
       { type: 'p', text: 'Applying to a university or scholarship can feel overwhelming. There are programs to compare, admission requirements to understand, essays to write, deadlines to manage, funding opportunities to research, and important decisions to make about your future.' },
       { type: 'p', text: 'This is where an independent academic advisor can support you.' },

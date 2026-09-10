@@ -1,4 +1,4 @@
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import './Header.css';
 
@@ -42,9 +42,11 @@ function Icon({ name }) {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const onHome = location.pathname === '/';
 
   return (
-    <header className="site-header">
+    <header className={`site-header ${onHome ? 'is-transparent' : ''}`}>
       <div className="container header-inner">
         <Link to="/" className="logo" onClick={() => setOpen(false)}>
           <span className="logo-name">NEHAL</span>

@@ -19,10 +19,10 @@ export default function Home() {
           </p>
           {GOOGLE_FORM_URL ? (
             <a className="btn btn-light" href={GOOGLE_FORM_URL} target="_blank" rel="noreferrer">
-              Book an Ask Nehal Session &rarr;
+              Let's Work Together &rarr;
             </a>
           ) : (
-            <span className="btn btn-light btn-disabled">Book an Ask Nehal Session &rarr;</span>
+            <span className="btn btn-light btn-disabled">Let's Work Together &rarr;</span>
           )}
         </div>
       </section>

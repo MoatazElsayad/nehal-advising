@@ -15,8 +15,7 @@
 .about-portrait img {
   width: 100%;
   border-radius: 6px;
-  object-fit: cover;
-  aspect-ratio: 4/5;
+  display: block;
 }
 
 .about-copy-grid {
