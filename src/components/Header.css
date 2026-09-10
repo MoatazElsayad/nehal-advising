@@ -22,6 +22,29 @@
   gap: 24px;
 }
 
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.logo-name {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  border-bottom: 1px solid var(--white);
+  padding-bottom: 4px;
+}
+
+.logo-sub {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  margin-top: 4px;
+  color: #cfd3dd;
+}
+
 .main-nav {
   display: flex;
   gap: 34px;

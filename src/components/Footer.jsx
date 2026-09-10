@@ -33,11 +33,8 @@ export default function Footer() {
       <ScrollReveal className="container footer-inner">
         <div className="footer-brand">
           <div className="logo">
-            <span className="logo-mark" aria-hidden="true">N</span>
-            <span className="logo-text">
-              <span className="logo-name">NEHAL</span>
-              <span className="logo-sub">ELSAYAD</span>
-            </span>
+            <span className="logo-name">NEHAL</span>
+            <span className="logo-sub">ELSAYAD</span>
           </div>
           <p className="footer-role">Independent Academic Advisor</p>
           <ul className="footer-socials">

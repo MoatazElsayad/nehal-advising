@@ -49,11 +49,8 @@ export default function Header() {
     <header className={`site-header ${onHome ? 'is-transparent' : ''}`}>
       <div className="container header-inner">
         <Link to="/" className="logo" onClick={() => setOpen(false)}>
-          <span className="logo-mark" aria-hidden="true">N</span>
-          <span className="logo-text">
-            <span className="logo-name">NEHAL</span>
-            <span className="logo-sub">ELSAYAD</span>
-          </span>
+          <span className="logo-name">NEHAL</span>
+          <span className="logo-sub">ELSAYAD</span>
         </Link>
 
         <nav className={`main-nav ${open ? 'is-open' : ''}`}>
