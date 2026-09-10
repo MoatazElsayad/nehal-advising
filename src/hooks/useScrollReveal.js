@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-export default function useScrollReveal(threshold = 0.15) {
+export default function useScrollReveal() {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const reducedRef = useRef(false);
@@ -32,11 +32,11 @@ export default function useScrollReveal(threshold = 0.15) {
           observer.disconnect();
         }
       },
-      { threshold },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0 },
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [threshold]);
+  }, []);
 
   return [ref, isVisible];
 }
