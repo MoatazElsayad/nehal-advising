@@ -26,8 +26,6 @@ const socials = [
 ];
 
 export default function Footer() {
-  const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-
   return (
     <footer className="site-footer">
       <ScrollReveal className="container footer-inner">
@@ -70,9 +68,6 @@ export default function Footer() {
       <div className="footer-bottom">
         <div className="container footer-bottom-inner">
           <span>© {new Date().getFullYear()} Nehal Elsayad — Independent Academic Advisor</span>
-          <button type="button" className="footer-top-link" onClick={scrollTop}>
-            Back to top &uarr;
-          </button>
         </div>
       </div>
     </footer>
