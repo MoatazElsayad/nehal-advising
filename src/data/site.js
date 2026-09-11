@@ -1,1 +1,1 @@
-export const GOOGLE_FORM_URL = ''; // TODO: add your Google Form link here
+export const GOOGLE_FORM_URL = 'https://forms.gle/eX8jt5PD7D8yAGEEA'; // General / Ask Nehal booking form

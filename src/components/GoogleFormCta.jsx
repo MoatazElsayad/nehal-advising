@@ -6,6 +6,7 @@ export default function GoogleFormCta({
   title,
   description,
   actionLabel = 'Open Form',
+  url = GOOGLE_FORM_URL,
   className = '',
 }) {
   return (
@@ -13,10 +14,10 @@ export default function GoogleFormCta({
       {eyebrow && <span className="eyebrow">{eyebrow}</span>}
       <h2>{title}</h2>
       <p>{description}</p>
-      {GOOGLE_FORM_URL ? (
+      {url ? (
         <a
           className="btn btn-gold"
-          href={GOOGLE_FORM_URL}
+          href={url}
           target="_blank"
           rel="noreferrer"
         >

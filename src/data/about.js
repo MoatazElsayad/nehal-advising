@@ -7,21 +7,6 @@ import incarnateImg from '../photos/incarnate.jpg';
 
 export const education = [
   {
-    university: 'The British University in Egypt',
-    detail: 'Bachelor of Arts in Communication and Mass Media, 2021',
-    image: britishImg,
-  },
-  {
-    university: 'The American University in Cairo',
-    detail: 'Academic Preparation Program, 2016-2017',
-    image: aucImg,
-  },
-  {
-    university: 'University of Michigan',
-    detail: 'Social Entrepreneurship Program, 2018',
-    image: michiganImg,
-  },
-  {
     university: 'The University of Manchester',
     detail: 'Master of Arts in International Education, 2024',
     image: manchesterImg,
@@ -35,6 +20,21 @@ export const education = [
     university: 'University of the Incarnate Word',
     detail: 'Study Abroad Program, 2019',
     image: incarnateImg,
+  },
+  {
+    university: 'University of Michigan',
+    detail: 'Social Entrepreneurship Program, 2018',
+    image: michiganImg,
+  },
+  {
+    university: 'The American University in Cairo',
+    detail: 'Academic Preparation Program, 2016-2017',
+    image: aucImg,
+  },
+  {
+    university: 'The British University in Egypt',
+    detail: 'Bachelor of Arts in Communication and Mass Media, 2021',
+    image: britishImg,
   },
 ];
 

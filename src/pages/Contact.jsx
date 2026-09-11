@@ -49,9 +49,9 @@ export default function Contact() {
                 <span>Socials</span>
                 <div className="contact-socials">
                   <a href="https://wa.me/201063952369" target="_blank" rel="noreferrer">WhatsApp</a>
-                  <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-                  <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-                  <a href="https://facebook.com" target="_blank" rel="noreferrer">Facebook</a>
+                  <a href="https://www.linkedin.com/in/nehal-elsayad/" target="_blank" rel="noreferrer">LinkedIn</a>
+                  <a href="https://www.instagram.com/nahla_l0/" target="_blank" rel="noreferrer">Instagram</a>
+                  <a href="https://web.facebook.com/nehal.albadawy" target="_blank" rel="noreferrer">Facebook</a>
                 </div>
               </li>
             </ul>

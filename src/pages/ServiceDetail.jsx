@@ -29,6 +29,7 @@ export default function ServiceDetail() {
           title="Ready to get started?"
           description={`Complete the quick Google Form to request your ${service.title} session. I'll get back to you by email or WhatsApp to confirm.`}
           actionLabel="Open Booking Form"
+          url={service.bookingUrl}
         />
       </ScrollReveal>
 
