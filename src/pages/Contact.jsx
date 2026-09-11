@@ -50,7 +50,7 @@ export default function Contact() {
                 <div className="contact-socials">
                   <a href="https://wa.me/201063952369" target="_blank" rel="noreferrer">WhatsApp</a>
                   <a href="https://www.linkedin.com/in/nehal-elsayad/" target="_blank" rel="noreferrer">LinkedIn</a>
-                  <a href="https://www.instagram.com/nahla_l0?stkn=MWtyYXEwdmxtcjJjbA%3D%3D&utm_source=qr" target="_blank" rel="noreferrer">Instagram</a>
+                  <a href="https://www.instagram.com/nahla_l0/" target="_blank" rel="noreferrer">Instagram</a>
                   <a href="https://web.facebook.com/nehal.albadawy" target="_blank" rel="noreferrer">Facebook</a>
                 </div>
               </li>

@@ -14,7 +14,7 @@ const navLinks = [
 const socials = [
   { href: 'https://wa.me/201063952369', label: 'WhatsApp', icon: 'whatsapp' },
   { href: 'https://web.facebook.com/nehal.albadawy', label: 'Facebook', icon: 'facebook' },
-  { href: 'https://www.instagram.com/nahla_l0?stkn=MWtyYXEwdmxtcjJjbA%3D%3D&utm_source=qr', label: 'Instagram', icon: 'instagram' },
+  { href: 'https://www.instagram.com/nahla_l0/', label: 'Instagram', icon: 'instagram' },
   { href: 'https://www.linkedin.com/in/nehal-elsayad/', label: 'LinkedIn', icon: 'linkedin' },
 ];
 
