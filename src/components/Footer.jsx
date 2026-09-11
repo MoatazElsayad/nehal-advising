@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import ScrollReveal from './ScrollReveal';
+import logoImg from '../photos/logo.png';
 import './Footer.css';
 
 const socials = [
@@ -31,8 +32,7 @@ export default function Footer() {
       <ScrollReveal className="container footer-inner">
         <div className="footer-brand">
           <div className="logo">
-            <span className="logo-name">NEHAL</span>
-            <span className="logo-sub">ELSAYAD</span>
+            <img src={logoImg} className="logo-image" alt="Nehal Elsayad" />
           </div>
           <p className="footer-role">Independent Academic Advisor</p>
           <ul className="footer-socials">

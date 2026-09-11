@@ -1,5 +1,6 @@
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import logoImg from '../photos/logo.png';
 import './Header.css';
 
 const navLinks = [
@@ -49,8 +50,7 @@ export default function Header() {
     <header className={`site-header ${onHome ? 'is-transparent' : ''}`}>
       <div className="container header-inner">
         <Link to="/" className="logo" onClick={() => setOpen(false)}>
-          <span className="logo-name">NEHAL</span>
-          <span className="logo-sub">ELSAYAD</span>
+          <img src={logoImg} className="logo-image" alt="Nehal Elsayad" />
         </Link>
 
         <nav className={`main-nav ${open ? 'is-open' : ''}`}>
