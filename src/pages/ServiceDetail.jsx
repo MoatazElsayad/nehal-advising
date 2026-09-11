@@ -16,6 +16,7 @@ export default function ServiceDetail() {
     <div className="page-service-detail">
       <ScrollReveal as="section" className="section section-dark service-detail-header">
         <div className="container">
+          <span className="eyebrow service-detail-eyebrow">Independent Academic Advisor</span>
           <h1>{service.title}</h1>
           <p className="service-detail-intro">{service.intro}</p>
           <p className="service-detail-sub"><strong>{service.subIntro}</strong></p>
@@ -49,6 +50,7 @@ export default function ServiceDetail() {
                     <h4>{s.title}</h4>
                     <p>{s.summary}</p>
                   </div>
+                  <span className="other-service-arrow" aria-hidden="true">&rarr;</span>
                 </Link>
               ))}
           </div>

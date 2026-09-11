@@ -1,26 +1,43 @@
 .service-detail-header {
   text-align: center;
-  padding: 90px 0 160px;
+  padding: 90px 0 165px;
 }
 
 .service-detail-header h1 {
   font-size: clamp(36px, 6vw, 56px);
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.service-detail-eyebrow {
+  margin-bottom: 16px;
 }
 
 .service-detail-intro {
-  margin-top: 26px;
+  margin-top: 24px;
   font-size: 18px;
   color: #dfe0e8;
 }
 
 .service-detail-sub {
-  margin-top: 8px;
+  margin-top: 10px;
   color: #dfe0e8;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+
+.service-detail-header::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: var(--gold);
+  margin: 28px auto 0;
 }
 
 .other-services {
-  padding-top: 0;
+  background: var(--cream);
+  padding-top: 68px;
 }
 
 .other-services-grid {
@@ -37,12 +54,14 @@
   border-radius: 6px;
   overflow: hidden;
   padding: 14px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(21, 21, 21, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .other-service-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 18px 40px -24px rgba(0,0,0,0.4);
+  border-color: rgba(213, 163, 78, 0.45);
 }
 
 .other-service-card img {
@@ -56,11 +75,31 @@
 .other-service-card h4 {
   font-size: 17px;
   margin-bottom: 6px;
+  transition: color 0.2s ease;
+}
+
+.other-service-card:hover h4 {
+  color: var(--gold-dark);
 }
 
 .other-service-card p {
   font-size: 14px;
   color: var(--muted);
+}
+
+.other-service-arrow {
+  margin-left: auto;
+  color: var(--gold);
+  font-size: 22px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.other-service-card:hover .other-service-arrow {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 @media (max-width: 700px) {
